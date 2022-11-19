@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +30,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/dashboard', [ProductController::class, 'index'])->middleware(['auth','verified'])->name('dashboard');
+Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
 require __DIR__.'/auth.php';

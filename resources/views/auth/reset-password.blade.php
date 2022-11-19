@@ -45,6 +45,7 @@
                 <x-primary-button>
                     {{ __('Reset Password') }}
                 </x-primary-button>
+                
             </div>
         </form>
     </x-auth-card>
