@@ -6,6 +6,11 @@
     </x-slot>
 
     <div class="py-12">
+    @if (session('message'))
+    <div class="bg-blue-100 border border-blue-500 text-blue-700 px-4 py-3 rounded" role="alert">
+      <p class="font-bold">カートに商品を追加しました(๑>◡<๑)</p>
+    </div>
+    @endif
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white">
         <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">

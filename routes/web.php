@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,5 +28,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/dashboard', [ProductController::class, 'index'])->middleware(['auth','verified'])->name('dashboard');
 Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
-Route::post('/cart', [ProductController::class, 'cart'])->name('cart');
+
+// カート
+Route::post('/cart', [CartController::class, 'index'])->name('cart');
 require __DIR__.'/auth.php';

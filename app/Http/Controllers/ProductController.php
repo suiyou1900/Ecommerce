@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -16,11 +17,9 @@ class ProductController extends Controller
     public function show($id)
     {
         $data=Product::find($id);
+      
         return view('show',['products'=>$data]);
+ 
     }
 
-    public function cart()
-    {
-        return view('cart');
-    }
 }
