@@ -42,7 +42,7 @@
       <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
         <h1 class="text-2xl font-serif tracking-tight text-gray-900 sm:text-3xl border-b-4">商品名：{{$products['name']}}</h1><br>
 
-        <h1 class="text-2xl font-serif border-b-4">商品の詳細：{{$products['description']}}</h1>
+        <h1 class="text-2xl font-serif">商品の詳細：{{$products['description']}}</h1>
         
       </div>
       
@@ -51,8 +51,8 @@
       <!-- Options -->
       <div class="mt-4 lg:row-span-3 lg:mt-0">
         <h2 class="sr-only">Product information</h2>
-        <p class="font-serif text-2xl tracking-tight text-gray-900 border-b-4">値段：{{$products['price']}}円＋送料（税込）</p><br>
-        <p class="font-serif text-2xl tracking-tight text-gray-900 border-b-4">個数：
+        <p class="font-serif text-2xl tracking-tight text-gray-900 ">値段：{{$products['price']}}円＋送料（税込）</p><br>
+        <p class="font-serif text-2xl tracking-tight text-gray-900 ">個数：
         <select>
             <option>選択してください</option>
             <option>1</option>
@@ -68,7 +68,7 @@
             <option>L</option>
         　　 </select></p><br>
 
-        <form class="mt-10" method='POST' action='/cart'>
+        <form class="mt-10" method='post' action="{{route('cart')}}">
             @csrf
           <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">商品をカートに入れる</button>
         </form>
