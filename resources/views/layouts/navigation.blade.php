@@ -10,6 +10,11 @@
                     <img src="https://template.canva.com/EAE0eJKbkio/1/0/400w-1WawYBY_uIc.jpg" class="mr-3 h-8 rounded-full" alt="McqueenLogo" />
                     </a>
                 </div>
+                <?php
+                use App\Http\Controllers\CartController;
+                $total=Cartcontroller::show();
+
+                ?>
 
                 <!-- Navigation Links -->
               
@@ -17,8 +22,9 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('ホーム画面') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('cart')" :active="request()->routeIs('cart')">
+                    <x-nav-link :href="route('cartlist')" :active="request()->routeIs('cart')">
                         {{ __('カート') }}
+                        ({{$total}}) 
                     </x-nav-link>
                 </div>
                 

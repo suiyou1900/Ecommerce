@@ -30,5 +30,7 @@ Route::get('/dashboard', [ProductController::class, 'index'])->middleware(['auth
 Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
 
 // カート
-Route::post('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('addcart', [CartController::class, 'index'])->name('cart');
+Route::get('cart', [CartController::class, 'cartlist'])->name('cartlist');
+
 require __DIR__.'/auth.php';
