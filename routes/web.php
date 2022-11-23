@@ -32,5 +32,6 @@ Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
 // カート
 Route::post('addcart', [CartController::class, 'index'])->name('cart');
 Route::get('cart', [CartController::class, 'cartlist'])->name('cartlist');
+Route::get('removecart/{id}', [CartController::class, 'destroy'])->name('removecart');
 
 require __DIR__.'/auth.php';
