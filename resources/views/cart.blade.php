@@ -58,7 +58,9 @@
             <span>合計金額</span>
             <span>{{$totalprice}}円</span>
           </div>
+          <a href='/order'>
           <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">購入手続きへ</button>
+          </a>
         </div>
       </div>
 

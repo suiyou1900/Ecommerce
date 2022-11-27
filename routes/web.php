@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +34,10 @@ Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
 Route::post('addcart', [CartController::class, 'index'])->name('cart');
 Route::get('cart', [CartController::class, 'cartlist'])->name('cartlist');
 Route::get('removecart/{id}', [CartController::class, 'destroy'])->name('removecart');
+
+// 注文
+Route::get('order', [OrderController::class, 'index'])->name('order');
+Route::post('order_detail', [OrderController::class, 'store'])->name('order.store');
+
 
 require __DIR__.'/auth.php';
