@@ -5,6 +5,7 @@ use App\Models\Order;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 
@@ -12,7 +13,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $userID=Session::get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        $userID=Auth::user()->id;
         // ユーザーがオーダーした注文のデータを取り出す処理
         $cartlist=DB::table('carts')
         ->join('products','carts.products_id','=','products.id')
@@ -20,12 +21,11 @@ class OrderController extends Controller
         ->select('products.*','carts.id as cart_id')
         ->get();
   
-        $total=DB::table('carts')
+        $total=$cartlist
         ->count('id');
   
-        $totalprice=DB::table('carts')
-        ->join('products','carts.products_id','=','products.id')
-        ->sum('products.price');
+        $totalprice=$cartlist
+        ->sum('price');
   
       
         return view('/order',[
@@ -39,8 +39,9 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-      $userID=Session::get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+      $userID=Auth::user()->id;
       $allcart=Cart::where('user_id',$userID)->get();
+     
       $totalprice=DB::table('carts')
         ->join('products','carts.products_id','=','products.id')
         ->sum('products.price');
@@ -63,10 +64,13 @@ class OrderController extends Controller
         $order->quantity=$total;
         $order->totalprice=$totalprice;
         $order->save();
+        Cart::where('user_id',$userID)->delete();
       }
 
-      dd($order);
+      return redirect()->route('dashboard')->with('order','商品の注文を完了しました');
     }
+
+  
 
   
 }

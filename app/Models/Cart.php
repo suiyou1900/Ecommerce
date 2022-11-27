@@ -9,4 +9,9 @@ class cart extends Model
 {
     use HasFactory;
     public $table='carts';
+
+    public function user()
+{
+  return $this->belongsTo('App\User');
+}
 }

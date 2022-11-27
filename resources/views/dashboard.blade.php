@@ -12,6 +12,11 @@
     </div>
     @endif
    
+    @if (session('order'))
+    <div class="bg-red-100 border border-red-500 text-red-700 px-4 py-3 rounded" role="alert">
+      <p class="font-bold">{{session('order')}}</p>
+    </div>
+    @endif
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white">
         <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
