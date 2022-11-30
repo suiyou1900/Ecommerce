@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
@@ -48,6 +49,17 @@ class OrderController extends Controller
 
       $total=DB::table('carts')
         ->count('id');
+
+       $validated = Validator::make($request->all(), [
+          'first_name' => 'required|max:255', 
+          'last_name' => 'required|max:255', 
+          'email' => 'email:rfc,dns',
+          'postal_code' => 'required',
+          'address' => 'required',
+          'phonenumber' => ['required','numeric','digits_between:10,11'],
+          'radio' => 'required',
+      ])->validate();
+      
   
       foreach($allcart as $cart)
       {
@@ -70,6 +82,7 @@ class OrderController extends Controller
       return redirect()->route('dashboard')->with('order','商品の注文を完了しました');
     }
 
+    
   
 
   

@@ -67,32 +67,50 @@
               <div class="col-span-6 sm:col-span-3">
                 <label for="first_name" class="block text-sm font-medium text-gray-700">姓</label>
                 <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-              </div>
+                @error('first_name')
+                <div class="text-red-600">{{ $message }}</div>
+                @enderror
+               </div>
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="last_name" class="block text-sm font-medium text-gray-700">名</label>
                 <input type="text" name="last_name" id="last_name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                @error('last_name')
+                <div class="text-red-600">{{ $message }}</div>
+                @enderror
               </div>
 
               <div class="col-span-6 sm:col-span-4">
                 <label for="email-address" class="block text-sm font-medium text-gray-700">メールアドレス</label>
                 <input type="text" name="email" id="email" autocomplete="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                @error('email')
+                <div class="text-red-600">{{ $message }}</div>
+                @enderror
               </div>
 
               <div class="col-span-6 sm:col-span-6 lg:col-span-4">
-                <label for="postal-code" class="block text-sm font-medium text-gray-700">郵便番号</label>
-                <input type="text" name="postal_code" id="postal_code" autocomplete="postal-code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                <label for="postal_code" class="block text-sm font-medium text-gray-700">郵便番号</label>
+                <input type="text" name="postal_code" id="postal_code" autocomplete="postal_code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                @error('postal_code')
+                <div class="text-red-600">{{ $message }}</div>
+                @enderror
               </div>
 
 
               <div class="col-span-6">
-                <label for="street-address" class="block text-sm font-medium text-gray-700">住所</label>
+                <label for="address" class="block text-sm font-medium text-gray-700">住所</label>
                 <input type="text" name="address" id="address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                @error('address')
+                <div class="text-red-600">{{ $message }}</div>
+                @enderror
               </div>
 
               <div class="col-span-6 sm:col-span-4">
                 <label for="region" class="block text-sm font-medium text-gray-700">電話番号</label>
                 <input type="text" name="phonenumber" id="phonenumber" autocomplete="address-level1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                @error('phonenumber')
+                <div class="text-red-600">{{ $message }}</div>
+                @enderror
               </div>     
 
               <div class="col-span-6 sm:col-span-6">
@@ -100,6 +118,9 @@
                 <input type="radio" name="payment" value='card'><span class='p-2'>クレジットカード</span>
                 <input type="radio" name="payment" value='money'><span class='p-2'>代金引換</span>
                 <input type="radio" name="payment" value='bank'><span class='p-2'>銀行振込</span>
+                @error('radio')
+                <div class="text-red-600">{{ $message }}</div>
+                @enderror
               </div>     
             </div>
       </div>

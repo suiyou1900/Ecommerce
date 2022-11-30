@@ -38,6 +38,7 @@ Route::get('removecart/{id}', [CartController::class, 'destroy'])->name('removec
 // 注文
 Route::get('order', [OrderController::class, 'index'])->name('order');
 Route::post('order_detail', [OrderController::class, 'store'])->name('order.store');
+Route::get('order_update', [OrderController::class, 'update'])->name('order.update');
 
 
 require __DIR__.'/auth.php';
