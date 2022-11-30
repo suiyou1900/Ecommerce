@@ -49,6 +49,8 @@ class OrderController extends Controller
 
       $total=DB::table('carts')
         ->count('id');
+      
+      $totallist=Cartcontroller::show();
 
        $validated = Validator::make($request->all(), [
           'first_name' => 'required|max:255', 
@@ -57,8 +59,13 @@ class OrderController extends Controller
           'postal_code' => 'required',
           'address' => 'required',
           'phonenumber' => ['required','numeric','digits_between:10,11'],
-          'radio' => 'required',
+          
       ])->validate();
+
+      if($totallist==0)
+      {
+        return redirect('/cart')->with('cart','!カートに商品がありません!');
+      }
       
   
       foreach($allcart as $cart)
@@ -81,9 +88,6 @@ class OrderController extends Controller
 
       return redirect()->route('dashboard')->with('order','商品の注文を完了しました');
     }
-
     
-  
 
-  
 }

@@ -13,7 +13,6 @@
                 <?php
                 use App\Http\Controllers\CartController;
                 $total=Cartcontroller::show();
-
                 ?>
 
                 <!-- Navigation Links -->
@@ -27,8 +26,7 @@
                         ({{$total}}) 
                     </x-nav-link>
                     <x-nav-link :href="route('order')" :active="request()->routeIs('order')">
-                        {{ __('注文画面') }}
-                       
+                        {{ __('注文画面') }}   
                     </x-nav-link>
                 </div>
                 

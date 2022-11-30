@@ -7,6 +7,11 @@
   
 　<body class="bg-gray-100">
   <div class="container mx-auto mt-10">
+    @if (session('cart'))
+    <div class="bg-red-100 border border-red-500 text-red-700 px-4 py-3 rounded" role="alert">
+    <p class="font-bold">{{session('cart')}}</p>
+    </div>
+    @endif
     <div class="flex shadow-md my-10">
       <div class="w-3/5 bg-white px-10 py-10">
         <div class="flex justify-between border-b pb-8">

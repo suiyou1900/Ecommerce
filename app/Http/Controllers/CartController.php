@@ -22,6 +22,9 @@ class CartController extends Controller
         
         return redirect()->route('dashboard')->with('message','カートに商品を追加しました');
       }
+
+    
+    
      
     }
 
@@ -65,6 +68,15 @@ class CartController extends Controller
     {
       Cart::destroy($id);
       return redirect('/cart');
+    }
+
+    public function cart()
+    {
+      $totalcart=Cartcontroller::show();
+
+      if($totalcart==0){
+        return redirect('/cart');
+      }
     }
         
 }
