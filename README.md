@@ -1,1 +1,2 @@
-laravelを使用したECサイトの作成
+Laravel Ecommerce Example
+
